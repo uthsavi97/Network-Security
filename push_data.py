@@ -48,5 +48,12 @@ class NetworkDataExtract():
         except Exception as e:
             raise NetworkSecurityException(e,sys)
 
- if __name__="__main__":
-F       
+if __name__ == "__main__":
+    FILE_PATH="Network_Data\\phisingData.csv"
+    DATABASE="uthsavi97" 
+    collection="NetworkData" 
+    networkobj=NetworkDataExtract()
+    records=networkobj.csv_to_json_convertor(file_path=FILE_PATH)
+    print(records)
+    no_of_records=networkobj.insert_data_mangodb(records,DATABASE,collection)
+    print(no_of_records)
